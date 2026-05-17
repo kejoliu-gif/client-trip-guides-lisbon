@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>里斯本婚禮之旅 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5f0e8; --terracotta: #c0623a; --tl: #d4875f;
+    --blue: #1a2744; --gold: #b8973a; --gl: #d4b060;
+    --stone: #8b7d6b; --sl: #c4b9ab; --white: #fefcf8; --dark: #1c1a17;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Noto Serif TC',serif; background:var(--cream); color:var(--dark); line-height:1.7; overflow-x:hidden; }
+
+  .lang-toggle { display:flex; align-items:center; gap:0.4rem; background:rgba(255,255,255,0.1); border:1px solid rgba(184,151,58,0.4); border-radius:2rem; padding:0.25rem 0.3rem; }
+  .lang-btn { background:none; border:none; cursor:pointer; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; padding:0.3rem 0.75rem; border-radius:1.5rem; transition:background 0.2s, color 0.2s; color:rgba(255,255,255,0.5); }
+  .lang-btn.active { background:var(--gl); color:var(--blue); }
+
+  .zh { display:block; } .en { display:none; }
+  body.en-mode .zh { display:none; } body.en-mode .en { display:block; }
+  span.zh { display:inline; } span.en { display:none; }
+  body.en-mode span.zh { display:none; } body.en-mode span.en { display:inline; }
+
+  nav { position:sticky; top:0; z-index:100; background:rgba(26,39,68,0.97); backdrop-filter:blur(12px); border-bottom:1px solid rgba(184,151,58,0.2); padding:0.9rem 1.5rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+  .nav-logo { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--gl); letter-spacing:0.1em; white-space:nowrap; }
+  .nav-right { display:flex; align-items:center; gap:1.2rem; }
+  .nav-links { display:flex; gap:1rem; list-style:none; flex-wrap:wrap; }
+  .nav-links a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--gl); }
+
+  .hero { min-height:100vh; background:var(--blue); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:2rem; position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 100%, rgba(192,98,58,0.25) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 20% 20%, rgba(184,151,58,0.15) 0%, transparent 50%); }
+  .hero > * { position:relative; z-index:1; }
+  .hero-orn { font-family:'Cormorant Garamond',serif; font-size:clamp(0.7rem,1.5vw,0.9rem); letter-spacing:0.4em; color:var(--gl); text-transform:uppercase; margin-bottom:1.5rem; }
+  .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(4rem,14vw,9rem); font-weight:300; color:var(--white); line-height:1.05; }
+  .hero h1 span { color:var(--tl); font-style:italic; }
+  .hero-sub { margin-top:1.5rem; font-size:clamp(0.8rem,2vw,1rem); color:var(--sl); letter-spacing:0.15em; }
+  .hero-dates { margin-top:2.5rem; display:flex; gap:0.8rem; flex-wrap:wrap; justify-content:center; }
+  .date-pill { background:rgba(255,255,255,0.08); border:1px solid rgba(184,151,58,0.4); color:var(--gl); padding:0.5rem 1.1rem; border-radius:2rem; font-size:0.8rem; }
+
+  .sec { max-width:960px; margin:0 auto; padding:4rem 1.5rem; }
+  .sl-label { font-family:'Cormorant Garamond',serif; font-size:0.75rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--terracotta); margin-bottom:0.75rem; }
+  .sl-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,5vw,3rem); font-weight:400; color:var(--blue); line-height:1.2; margin-bottom:1.5rem; }
+  .divider { width:60px; height:2px; background:linear-gradient(90deg,var(--terracotta),var(--gold)); margin:1rem 0 2rem; }
+
+  .ov-strip { background:var(--blue); padding:4rem 1.5rem; }
+  .ov-inner { max-width:960px; margin:0 auto; }
+  .ov-inner .sl-title { color:var(--white); }
+  .ov-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(195px,1fr)); gap:1.1rem; margin-top:2rem; }
+  .ic { background:rgba(255,255,255,0.07); border:1px solid rgba(184,151,58,0.22); border-radius:12px; padding:1.3rem; }
+  .ic .ico { font-size:1.4rem; margin-bottom:0.6rem; }
+  .ic h3 { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:600; color:var(--gl); margin-bottom:0.3rem; }
+  .ic p { font-size:0.84rem; color:rgba(255,255,255,0.7); line-height:1.65; }
+
+  .sch-bg { background:var(--white); }
+  .tl { display:flex; flex-direction:column; position:relative; margin-top:2rem; }
+  .tl::before { content:''; position:absolute; left:2rem; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,var(--terracotta),var(--gold)); opacity:0.25; }
+  .tl-item { display:grid; grid-template-columns:4rem 1fr; gap:1.2rem; padding:1.6rem 0; border-bottom:1px solid rgba(0,0,0,0.06); }
+  .tl-item:last-child { border-bottom:none; }
+  .tl-date { text-align:center; }
+  .tl-dot { width:11px; height:11px; border-radius:50%; background:var(--terracotta); margin:0.25rem auto 0.4rem; box-shadow:0 0 0 4px rgba(192,98,58,0.15); }
+  .tl-dlab { font-size:0.6rem; letter-spacing:0.07em; text-transform:uppercase; color:var(--stone); }
+  .tl-dnum { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:300; color:var(--blue); line-height:1; }
+  .tl-con h3 { font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--blue); margin-bottom:0.3rem; }
+  .tag { display:inline-block; background:var(--terracotta); color:var(--white); font-size:0.64rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.18rem 0.6rem; border-radius:2rem; margin-bottom:0.45rem; }
+  .tag.gd { background:var(--gold); } .tag.bl { background:var(--blue); } .tag.pk { background:#e91e8c; }
+  .tl-con p { font-size:0.87rem; color:var(--stone); line-height:1.7; }
+  .tl-link { display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.6rem; background:var(--terracotta); color:var(--white); text-decoration:none; font-size:0.8rem; padding:0.45rem 1rem; border-radius:2rem; transition:opacity 0.2s,transform 0.2s; }
+  .tl-link:hover { opacity:0.88; transform:translateY(-1px); }
+  .map-link-btn { display:inline-flex; align-items:center; gap:0.5rem; margin-top:0.7rem; background:var(--blue); color:var(--white); text-decoration:none; font-size:0.82rem; padding:0.5rem 1.1rem; border-radius:2rem; transition:opacity 0.2s,transform 0.2s; border:1px solid rgba(184,151,58,0.3); }
+  .map-link-btn:hover { opacity:0.88; transform:translateY(-1px); }
+
+  .cpn { background:linear-gradient(135deg,rgba(192,98,58,0.08),rgba(184,151,58,0.06)); border:1px solid rgba(192,98,58,0.2); border-radius:12px; padding:1.2rem; margin-bottom:1.4rem; font-size:0.87rem; line-height:1.8; }
+  .cpn strong { color:var(--terracotta); }
+  .ps { background:var(--white); border-radius:12px; padding:1rem 1.5rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:space-around; margin-bottom:1.8rem; border:1px solid rgba(0,0,0,0.07); }
+  .pi { text-align:center; }
+  .pi .hrs { font-size:0.7rem; color:var(--stone); }
+  .pi .eur { font-family:'Cormorant Garamond',serif; font-size:1.25rem; color:var(--terracotta); }
+  .pi .usd { font-size:0.74rem; color:var(--stone); }
+  .sg { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1.1rem; margin-top:1.4rem; }
+  .sc { background:var(--white); border-radius:12px; padding:1.3rem; border-left:3px solid var(--terracotta); box-shadow:0 2px 14px rgba(0,0,0,0.05); transition:transform 0.2s,box-shadow 0.2s; }
+  .sc:hover { transform:translateY(-3px); box-shadow:0 8px 26px rgba(0,0,0,0.09); }
+  .sc-num { font-family:'Cormorant Garamond',serif; font-size:2.1rem; font-weight:300; color:var(--terracotta); opacity:0.32; line-height:1; }
+  .sc h3 { font-family:'Cormorant Garamond',serif; font-size:1.08rem; color:var(--blue); margin-bottom:0.2rem; }
+  .sm { display:flex; gap:0.4rem; flex-wrap:wrap; margin:0.4rem 0; }
+  .badge { font-size:0.67rem; padding:0.13rem 0.52rem; border-radius:2rem; }
+  .badge.fr { background:#e8f5e9; color:#388e3c; border:1px solid #c8e6c9; }
+  .badge.pd { background:#fff3e0; color:#e65100; border:1px solid #ffe0b2; }
+  .sc p { font-size:0.82rem; color:var(--stone); line-height:1.6; }
+  .sc .dist { font-size:0.77rem; color:var(--gold); margin-top:0.4rem; }
+
+  /* TOURS */
+  .tb { background:var(--blue); padding:4rem 1.5rem; }
+  .ti { max-width:960px; margin:0 auto; }
+  .ti .sl-title { color:var(--white); }
+  .ti .sl-label { color:var(--gl); }
+  .tg { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:1.25rem; margin-top:1.4rem; }
+  .tc { background:rgba(255,255,255,0.06); border:1px solid rgba(184,151,58,0.2); border-radius:12px; padding:1.5rem; transition:background 0.2s; display:flex; flex-direction:column; }
+  .tc:hover { background:rgba(255,255,255,0.1); }
+  .tc .ticon { font-size:1.5rem; margin-bottom:0.55rem; }
+  .tc h3 { font-family:'Cormorant Garamond',serif; font-size:1.08rem; color:var(--white); margin-bottom:0.3rem; line-height:1.35; }
+  .tc .pr { font-size:0.8rem; color:var(--gl); margin-bottom:0.45rem; }
+  .tc p { font-size:0.8rem; color:rgba(255,255,255,0.56); line-height:1.6; flex:1; }
+  .tc-link { display:inline-flex; align-items:center; gap:0.35rem; margin-top:0.85rem; background:rgba(184,151,58,0.22); color:var(--gl); text-decoration:none; font-size:0.76rem; padding:0.42rem 1rem; border-radius:2rem; border:1px solid rgba(184,151,58,0.4); transition:background 0.2s; width:fit-content; }
+  .tc-link:hover { background:rgba(184,151,58,0.4); }
+
+  .rt { width:100%; border-collapse:collapse; margin-top:1.4rem; font-size:0.86rem; }
+  .rt th { background:var(--blue); color:var(--gl); padding:0.8rem 0.85rem; text-align:left; font-family:'Cormorant Garamond',serif; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:400; }
+  .rt td { padding:0.82rem 0.85rem; border-bottom:1px solid rgba(0,0,0,0.07); vertical-align:top; }
+  .rt tr:last-child td { border-bottom:none; }
+  .rt tr:hover td { background:rgba(192,98,58,0.04); }
+  .cr td { background:var(--cream); color:var(--terracotta); font-family:'Cormorant Garamond',serif; font-size:0.76rem; letter-spacing:0.18em; text-transform:uppercase; padding:0.42rem 0.85rem; font-weight:600; }
+  .rn { font-weight:600; color:var(--blue); white-space:nowrap; }
+  .rp { color:var(--terracotta); white-space:nowrap; font-size:0.8rem; }
+
+  .ib { background:linear-gradient(135deg,#1a2744,#2d3f6b); padding:4rem 1.5rem; }
+  .ii { max-width:960px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
+  .ii .sl-title { color:var(--white); }
+  .ii .sl-label { color:var(--gl); }
+  .ifs { display:flex; flex-direction:column; gap:0.85rem; margin-top:1.2rem; }
+  .fr-row { display:flex; align-items:flex-start; gap:0.65rem; }
+  .fr-chk { color:var(--gl); font-size:0.92rem; flex-shrink:0; margin-top:0.1rem; }
+  .fr-row p { font-size:0.86rem; color:rgba(255,255,255,0.7); }
+  .fb { background:rgba(255,255,255,0.07); border:1px solid rgba(184,151,58,0.38); border-radius:16px; padding:2rem; text-align:center; }
+  .fb .lt { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:300; color:var(--white); letter-spacing:0.2em; }
+  .fb p { font-size:0.8rem; color:rgba(255,255,255,0.48); margin-top:0.4rem; }
+
+  .ms { background:var(--cream); padding:4rem 1.5rem; }
+  .mi { max-width:960px; margin:0 auto; }
+  .ml { display:grid; grid-template-columns:repeat(auto-fit,minmax(152px,1fr)); gap:0.85rem; margin-top:1.2rem; }
+  .li { background:var(--white); border-radius:10px; padding:0.85rem 1rem; display:flex; align-items:center; gap:0.6rem; font-size:0.82rem; color:var(--dark); box-shadow:0 2px 10px rgba(0,0,0,0.06); }
+  .ld { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+
+  .cs { background:var(--dark); padding:5rem 1.5rem; text-align:center; }
+  .ci { max-width:680px; margin:0 auto; }
+  .ci .sl-label { color:var(--gl); }
+  .ci .sl-title { color:var(--white); }
+  .c-intro { color:rgba(255,255,255,0.56); font-size:0.9rem; margin-bottom:2.2rem; line-height:1.85; }
+  .c-links { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+  .c-btn { display:inline-flex; align-items:center; gap:0.55rem; padding:0.85rem 1.75rem; border-radius:3rem; text-decoration:none; font-size:0.88rem; letter-spacing:0.05em; transition:transform 0.2s,opacity 0.2s; }
+  .c-btn:hover { transform:translateY(-2px); opacity:0.9; }
+  .c-email { background:var(--terracotta); color:var(--white); }
+  .c-line { background:#06C755; color:var(--white); }
+  .adv { margin-top:1.8rem; font-family:'Cormorant Garamond',serif; font-size:0.88rem; color:rgba(255,255,255,0.28); letter-spacing:0.15em; }
+
+  .hb { background:var(--white); padding:4rem 1.5rem; }
+  .hi { max-width:960px; margin:0 auto; }
+  .hc { background:var(--cream); border:1px solid rgba(192,98,58,0.17); border-radius:14px; padding:1.4rem 1.65rem; max-width:500px; margin-top:1.4rem; }
+  .hc .hico { font-size:1.4rem; margin-bottom:0.5rem; }
+  .hc h3 { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--blue); margin-bottom:0.35rem; }
+  .hc p { font-size:0.86rem; color:var(--stone); }
+
+  /* FLIGHTS */
+  .fl-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.1rem; }
+  .fl-card { background:var(--white); border:1px solid rgba(0,0,0,0.08); border-radius:14px; padding:1.5rem; display:flex; flex-direction:column; gap:0.3rem; box-shadow:0 2px 12px rgba(0,0,0,0.05); }
+  .fl-ico { font-size:1.5rem; }
+  .fl-dir { font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--terracotta); font-weight:700; }
+  .fl-leg { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; color:var(--blue); line-height:1; }
+  .fl-dt { font-size:0.82rem; color:var(--stone); margin-bottom:0.4rem; }
+
+  /* LODGING */
+  .lod-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(255px,1fr)); gap:1.2rem; margin-top:1.8rem; }
+  .lod-card { background:var(--white); border-radius:14px; padding:1.5rem; border:1px solid rgba(0,0,0,0.08); box-shadow:0 2px 14px rgba(0,0,0,0.05); display:flex; flex-direction:column; transition:transform 0.2s,box-shadow 0.2s; }
+  .lod-card:hover { transform:translateY(-3px); box-shadow:0 8px 26px rgba(0,0,0,0.1); }
+  .tier-badge { font-size:0.67rem; padding:0.2rem 0.65rem; border-radius:2rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; display:inline-block; margin-bottom:0.65rem; }
+  .tier-b { background:#e8f5e9; color:#2e7d32; border:1px solid #c8e6c9; }
+  .tier-m { background:#fff8e1; color:#e65100; border:1px solid #ffe0b2; }
+  .tier-l { background:#fce4ec; color:#880e4f; border:1px solid #f8bbd0; }
+  .lod-name { font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--blue); line-height:1.3; margin-bottom:0.15rem; }
+  .lod-area { font-size:0.75rem; color:var(--stone); margin-bottom:0.4rem; }
+  .lod-price { font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--terracotta); margin-bottom:0.45rem; }
+  .lod-desc { font-size:0.82rem; color:var(--stone); line-height:1.65; flex:1; }
+  .lod-btn { display:inline-flex; align-items:center; gap:0.4rem; margin-top:1rem; background:var(--blue); color:var(--white); text-decoration:none; font-size:0.78rem; padding:0.5rem 1.1rem; border-radius:2rem; transition:opacity 0.2s,transform 0.2s; width:fit-content; }
+  .lod-btn:hover { opacity:0.88; transform:translateY(-1px); }
+  .klk-card { background:linear-gradient(135deg,rgba(192,98,58,0.09),rgba(184,151,58,0.07)); border:1px solid rgba(192,98,58,0.25); border-radius:14px; padding:1.4rem 1.6rem; display:flex; align-items:flex-start; gap:1.2rem; margin-bottom:0.5rem; }
+  .klk-ico { font-size:2rem; flex-shrink:0; padding-top:0.2rem; }
+  .klk-body h3 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--blue); margin-bottom:0.25rem; }
+  .klk-body p { font-size:0.84rem; color:var(--stone); line-height:1.7; }
+  .klk-btn { display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.75rem; background:var(--terracotta); color:var(--white); text-decoration:none; font-size:0.78rem; padding:0.5rem 1.15rem; border-radius:2rem; transition:opacity 0.2s; }
+  .klk-btn:hover { opacity:0.88; }
+
+  @media(max-width:640px){
+    .nav-links{display:none;}
+    .ii{grid-template-columns:1fr;gap:2rem;}
+    .tl::before{left:1.6rem;}
+    .tl-item{grid-template-columns:3rem 1fr;gap:0.9rem;}
+    .rt{font-size:0.76rem;}
+    .rt th,.rt td{padding:0.55rem 0.5rem;}
+    .tg{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span class="zh">里斯本 2026 ✈️</span>
+    <span class="en">Lisbon 2026 ✈️</span>
+  </div>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#flights"><span class="zh">機票</span><span class="en">Flights</span></a></li>
+      <li><a href="#lodging"><span class="zh">住宿</span><span class="en">Lodging</span></a></li>
+      <li><a href="#schedule"><span class="zh">行程</span><span class="en">Schedule</span></a></li>
+      <li><a href="#sights"><span class="zh">景點</span><span class="en">Sights</span></a></li>
+      <li><a href="#tours"><span class="zh">導覽</span><span class="en">Tours</span></a></li>
+      <li><a href="#restaurants"><span class="zh">餐廳</span><span class="en">Dining</span></a></li>
+      <li><a href="#insurance"><span class="zh">保險</span><span class="en">Insurance</span></a></li>
+      <li><a href="#contact"><span class="zh">聯絡</span><span class="en">Contact</span></a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-zh" onclick="setLang('zh')">中文</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">ENG</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-orn"><span class="zh">葡萄牙 · 里斯本婚禮之旅</span><span class="en">Portugal · Lisbon Wedding Trip</span></p>
+  <h1><span class="zh">里<span style="color:var(--tl);font-style:italic">斯</span>本</span><span class="en">Lis<span style="color:var(--tl);font-style:italic">bon</span></span></h1>
+  <p class="hero-sub">LISBON, PORTUGAL &nbsp;·&nbsp; NOVEMBER 2026</p>
+  <div class="hero-dates">
+    <div class="date-pill"><span class="zh">✈️ 11/18 出發</span><span class="en">✈️ 11/18 Depart</span></div>
+    <div class="date-pill"><span class="zh">🌅 11/19 抵達</span><span class="en">🌅 11/19 Arrive</span></div>
+    <div class="date-pill"><span class="zh">💍 11/21 婚禮</span><span class="en">💍 11/21 Wedding</span></div>
+    <div class="date-pill"><span class="zh">✈️ 11/25 返程</span><span class="en">✈️ 11/25 Return</span></div>
+    <div class="date-pill"><span class="zh">🦃 11/26 感恩節</span><span class="en">🦃 11/26 Thanksgiving</span></div>
+  </div>
+</section>
+
+<!-- FLIGHTS -->
+<section class="sec" id="flights">
+  <p class="sl-label"><span class="zh">機票資訊</span><span class="en">Flights</span></p>
+  <h2 class="sl-title"><span class="zh">搜尋最優惠機票</span><span class="en">Search for Flights</span></h2>
+  <div class="divider"></div>
+  <p style="font-size:0.88rem;color:var(--stone);line-height:1.85;margin-bottom:1.5rem;">
+    <span class="zh">洛杉磯（LAX）飛往里斯本（LIS）約需14–16小時，通常中停一站（紐約、倫敦或馬德里）。建議提前6–8週購票。推薦航空：<strong style="color:var(--blue)">TAP 葡萄牙航空</strong>、<strong style="color:var(--blue)">United 聯合航空</strong>。</span>
+    <span class="en">Los Angeles (LAX) to Lisbon (LIS) is typically 14–16 hours with one stop via New York, London, or Madrid. Book 6–8 weeks ahead for the best fares. Recommended: <strong style="color:var(--blue)">TAP Air Portugal</strong> or <strong style="color:var(--blue)">United Airlines</strong>.</span>
+  </p>
+  <div class="fl-grid">
+    <div class="fl-card">
+      <div class="fl-ico">✈️</div>
+      <div class="fl-dir"><span class="zh">去程</span><span class="en">Outbound</span></div>
+      <div class="fl-leg">LAX → LIS</div>
+      <div class="fl-dt"><span class="zh">2026年11月18日（週三）</span><span class="en">Wednesday, November 18, 2026</span></div>
+      <a class="tl-link" style="margin-top:0.3rem;" href="https://www.google.com/travel/flights#flt=LAX.LIS.2026-11-18;c:USD;e:1;sd:1;t:f" target="_blank" rel="noopener">🔍 <span class="zh">搜尋去程機票</span><span class="en">Search on Google Flights</span></a>
+    </div>
+    <div class="fl-card">
+      <div class="fl-ico">🏡</div>
+      <div class="fl-dir"><span class="zh">回程</span><span class="en">Return</span></div>
+      <div class="fl-leg">LIS → LAX</div>
+      <div class="fl-dt"><span class="zh">2026年11月25日（週三）</span><span class="en">Wednesday, November 25, 2026</span></div>
+      <a class="tl-link" style="margin-top:0.3rem;" href="https://www.google.com/travel/flights#flt=LIS.LAX.2026-11-25;c:USD;e:1;sd:1;t:f" target="_blank" rel="noopener">🔍 <span class="zh">搜尋回程機票</span><span class="en">Search on Google Flights</span></a>
+    </div>
+  </div>
+  <div class="cpn" style="margin-top:1.6rem;">
+    <span class="zh">
+      <strong>💡 機票小提醒：</strong><br>
+      • 美國護照前往葡萄牙<strong>免簽</strong>（申根地區），請確認護照有效期至少超過回國後6個月<br>
+      • 西岸轉機建議選擇<strong>轉機時間1.5小時以上</strong>的班次，避免趕機<br>
+      • 購票時建議選擇<strong>含托運行李</strong>的票價方案
+    </span>
+    <span class="en">
+      <strong>💡 Flight Tips:</strong><br>
+      • US passport holders need <strong>no visa</strong> for Portugal (Schengen) — ensure passport is valid 6+ months past your return date<br>
+      • From the West Coast, allow <strong>1.5+ hours</strong> for connections to avoid rushing<br>
+      • Look for fares that <strong>include checked baggage</strong> for the best value
+    </span>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="ov-strip" id="overview">
+  <div class="ov-inner">
+    <p class="sl-label"><span class="zh">旅行概覽</span><span class="en">Trip Overview</span></p>
+    <h2 class="sl-title"><span class="zh">關於里斯本</span><span class="en">About Lisbon</span></h2>
+    <p class="zh" style="color:rgba(255,255,255,0.68);font-size:0.91rem;max-width:700px;line-height:1.85;margin-bottom:0.5rem;">
+      里斯本最精華的導覽圍繞兩個區域：<strong style="color:var(--gl)">聖喬治城堡</strong>（距您住宿很近）是里斯本的發源地，山頂要塞與阿爾法瑪老城區充滿古老歷史，常伴隨現場法朵音樂演出。<strong style="color:var(--gl)">辛特拉</strong>距此僅30分鐘，葡萄牙王室曾在此霧氣繚繞的森林山丘間建造夏宮，展示全歐洲最精美的浪漫主義建築。
+    </p>
+    <p class="en" style="color:rgba(255,255,255,0.68);font-size:0.91rem;max-width:700px;line-height:1.85;margin-bottom:0.5rem;">
+      Lisbon's best experiences center around two areas: <strong style="color:var(--gl)">Castelo de São Jorge</strong> (close to your hotel) is where Lisbon was born — the hilltop fortress and Alfama neighborhood are steeped in ancient history, often paired with live Fado music. <strong style="color:var(--gl)">Sintra</strong>, just 30 minutes away, is where Portuguese royalty built their summer palaces among misty forested hills, showcasing some of the finest Romantic architecture in Europe.
+    </p>
+    <div class="ov-grid">
+      <div class="ic"><div class="ico">🕰️</div><h3><span class="zh">時差</span><span class="en">Time Zone</span></h3><p><span class="zh">里斯本比洛杉磯早8小時<br>（里斯本時間 = LA時間 + 8小時）</span><span class="en">Lisbon is 8 hours ahead of LA<br>(Lisbon = LA time + 8 hrs)</span></p></div>
+      <div class="ic"><div class="ico">🌡️</div><h3><span class="zh">氣溫</span><span class="en">Temperature</span></h3><p><span class="zh">白天 14–16°C（57–61°F）<br>夜晚 9–11°C（48–52°F）<br>記得帶保暖衣物！</span><span class="en">Highs 57–61°F (14–16°C)<br>Lows 48–52°F (9–11°C)<br>Bring layers!</span></p></div>
+      <div class="ic"><div class="ico">🌧️</div><h3><span class="zh">天氣</span><span class="en">Weather</span></h3><p><span class="zh">11月較多雨，請準備輕便雨衣或雨傘，通常不會整天下雨。</span><span class="en">November is one of Lisbon's rainier months. Pack a light rain jacket — rarely all-day downpours.</span></p></div>
+      <div class="ic"><div class="ico">☀️</div><h3><span class="zh">日照</span><span class="en">Daylight</span></h3><p><span class="zh">仍有晴天但日照較短，日落約下午5:15，請善加規劃行程。</span><span class="en">Still sunny stretches but shorter days. Sunset around 5:15 PM — plan accordingly.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<div class="sch-bg" id="schedule">
+<section class="sec">
+  <p class="sl-label"><span class="zh">每日行程</span><span class="en">Daily Itinerary</span></p>
+  <h2 class="sl-title"><span class="zh">旅遊行程表</span><span class="en">Trip Schedule</span></h2>
+  <div class="divider"></div>
+  <div class="tl">
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-dot"></div><div class="tl-dnum">18</div><div class="tl-dlab"><span class="zh">11月 週三</span><span class="en">Nov · Wed</span></div></div>
+      <div class="tl-con">
+        <span class="tag">✈️ <span class="zh">出發日</span><span class="en">Departure</span></span>
+        <h3><span class="zh">從洛杉磯出發</span><span class="en">Depart Los Angeles</span></h3>
+        <p><span class="zh">LAX 早上 10:45 出發，飛往里斯本。</span><span class="en">Depart LAX at 10:45 AM, flying to Lisbon.</span></p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-dnum">19</div><div class="tl-dlab"><span class="zh">11月 週四</span><span class="en">Nov · Thu</span></div></div>
+      <div class="tl-con">
+        <span class="tag gd">☀️ <span class="zh">抵達日</span><span class="en">Arrival</span></span>
+        <h3><span class="zh">抵達里斯本</span><span class="en">Arrive in Lisbon</span></h3>
+        <p><span class="zh">早上 8:00 抵達里斯本 ☀️<br>🚗 機場到飯店約22分鐘車程<br>入住後建議輕鬆散步、曬太陽、吃飯，盡量撐到當地晚上再睡，有效對抗時差！</span><span class="en">Arrive Lisbon at 8:00 AM ☀️<br>🚗 ~22 min drive to hotel<br>Check in, take a gentle walk, eat well, and try to stay up until local bedtime to beat jet lag!</span></p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-dot" style="background:var(--terracotta)"></div><div class="tl-dnum">20</div><div class="tl-dlab"><span class="zh">11月 週五</span><span class="en">Nov · Fri</span></div></div>
+      <div class="tl-con">
+        <span class="tag">🛺 <span class="zh">導覽日</span><span class="en">Tour Day</span></span>
+        <h3><span class="zh">電動嘟嘟車私人觀光之旅（4小時）</span><span class="en">Private Electric Tuk-Tuk Sightseeing Tour (4 hrs)</span></h3>
+        <p><span class="zh">搭乘電動嘟嘟車深度遊覽里斯本精華——阿爾法瑪老城區、貝倫區、米拉杜羅觀景台等，由專業導遊帶領，輕鬆又有趣！</span><span class="en">Explore Lisbon's highlights by electric tuk-tuk — Alfama, Belém, Miradouros viewpoints and more, led by a professional local guide.</span></p>
+        <a class="tl-link" href="https://www.viator.com/tours/Lisbon/Lisbon-Half-Day-Sightseeing-Tour-by-Electric-Tuk-Tuk/d538-25843P2?pid=P00058688&uid=U00806492&mcid=58086&currency=USD" target="_blank" rel="noopener">🎟️ <span class="zh">立即預訂嘟嘟車之旅</span><span class="en">Book Tuk-Tuk Tour</span></a>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-dot" style="background:#e91e8c"></div><div class="tl-dnum">21</div><div class="tl-dlab"><span class="zh">11月 週六</span><span class="en">Nov · Sat</span></div></div>
+      <div class="tl-con">
+        <span class="tag pk">💍 <span class="zh">婚禮當日</span><span class="en">Wedding Day</span></span>
+        <h3><span class="zh">婚禮慶典</span><span class="en">Wedding Celebration</span></h3>
+        <p><span class="zh">恭喜新人！今日全力投入婚禮慶典，見證這美好的一刻。🤵🏻‍♂️👰🏻‍♀️</span><span class="en">Congratulations to the happy couple! Today is all about celebrating this beautiful milestone. 🤵🏻‍♂️👰🏻‍♀️</span></p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-dot" style="background:var(--blue)"></div><div class="tl-dnum">22</div><div class="tl-dlab"><span class="zh">11月 週日</span><span class="en">Nov · Sun</span></div></div>
+      <div class="tl-con">
+        <span class="tag bl">🏛️ <span class="zh">景點 1–3</span><span class="en">Sights 1–3</span></span>
+        <h3><span class="zh">里斯本卡自由探索</span><span class="en">Explore with Lisbon Card</span></h3>
+        <p><span class="zh">使用里斯本卡免費參觀：<br><strong>1.</strong> 阿茹達國家宮（Palácio Nacional da Ajuda）<br><strong>2.</strong> 皇家珍寶博物館（Museu do Tesouro Real）<br><strong>3.</strong> 聖喬治城堡（Castelo de São Jorge）— 360度全景！</span><span class="en">Free entry with Lisbon Card:<br><strong>1.</strong> Palácio Nacional da Ajuda (Royal Palace)<br><strong>2.</strong> Museu do Tesouro Real (Royal Treasury)<br><strong>3.</strong> Castelo de São Jorge — 360° panoramic views!</span></p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-dnum">23</div><div class="tl-dlab"><span class="zh">11月 週一</span><span class="en">Nov · Mon</span></div></div>
+      <div class="tl-con">
+        <span class="tag gd">🏰 <span class="zh">景點 4</span><span class="en">Sight 4</span></span>
+        <h3><span class="zh">熱羅尼姆斯修道院 + 葡式蛋塔</span><span class="en">Jerónimos Monastery + Pastéis de Belém</span></h3>
+        <p><span class="zh">使用里斯本卡免費參觀：<br><strong>4.</strong> 熱羅尼姆斯修道院（Jerónimos Monastery）— 葡萄牙哥德式建築精髓<br>著名烘焙坊：<strong>Pastéis de Belém</strong>（就在修道院旁，趁熱吃剛出爐的蛋塔！）</span><span class="en">Free entry with Lisbon Card:<br><strong>4.</strong> Jerónimos Monastery — finest Manueline Gothic architecture in Portugal<br>Famous bakery: <strong>Pastéis de Belém</strong> right next door — eat the custard tarts warm!</span></p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-dot"></div><div class="tl-dnum">24</div><div class="tl-dlab"><span class="zh">11月 週二</span><span class="en">Nov · Tue</span></div></div>
+      <div class="tl-con">
+        <span class="tag">🚌 <span class="zh">一日遊</span><span class="en">Day Trip</span></span>
+        <h3><span class="zh">辛特拉 · 羅卡角 · 卡斯卡伊斯全天行程</span><span class="en">Sintra · Cabo da Roca · Cascais Full Day</span></h3>
+        <p><span class="zh">團體一日遊（約9小時）：<br>辛特拉 → 佩納宮 → 雷加萊拉宮 → 羅卡角（歐洲大陸最西端）→ 卡斯卡伊斯海濱小鎮</span><span class="en">Group tour (~9 hours):<br>Sintra → Pena Palace → Regaleira Palace → Cabo da Roca (westernmost point of continental Europe) → Cascais seaside town</span></p>
+        <a class="tl-link" href="https://www.viator.com/tours/Lisbon/Enchanting-Escapades-Full-Day-Tour-through-Sintra-and-Cascais/d538-423031P1?pid=P00058688&uid=U00806492&mcid=58086&currency=USD" target="_blank" rel="noopener">🎟️ <span class="zh">立即預訂辛特拉一日遊</span><span class="en">Book Sintra Day Trip</span></a>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-dot" style="background:var(--terracotta)"></div><div class="tl-dnum">25</div><div class="tl-dlab"><span class="zh">11月 週三</span><span class="en">Nov · Wed</span></div></div>
+      <div class="tl-con">
+        <span class="tag">✈️ <span class="zh">返程日</span><span class="en">Travel Day</span></span>
+        <h3><span class="zh">返回洛杉磯</span><span class="en">Return to Los Angeles</span></h3>
+        <p><span class="zh">下午 1:00 搭機 → 晚上 9:30 抵達洛杉磯 LAX，平安返家！</span><span class="en">Departure at 1:00 PM → Arrives LAX at 9:30 PM. Safe travels home!</span></p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-dnum">26</div><div class="tl-dlab"><span class="zh">11月 週四</span><span class="en">Nov · Thu</span></div></div>
+      <div class="tl-con">
+        <span class="tag gd">🦃 <span class="zh">感恩節</span><span class="en">Thanksgiving</span></span>
+        <h3><span class="zh">感恩節快樂！</span><span class="en">Happy Thanksgiving!</span></h3>
+        <p><span class="zh">好好休息，與家人共度溫馨感恩節。</span><span class="en">Rest up and enjoy Thanksgiving with family!</span></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- SIGHTS -->
+<section class="sec" id="sights">
+  <p class="sl-label"><span class="zh">景點推薦</span><span class="en">Sightseeing</span></p>
+  <h2 class="sl-title"><span class="zh">必訪景點</span><span class="en">Must-See Attractions</span></h2>
+  <div class="divider"></div>
+  <div class="cpn">
+    <span class="zh"><strong>🎟️ 里斯本卡建議：</strong>購買24小時城市卡，中午啟用。<br><strong>11/22（週日）：</strong>遊覽第1–3站<br><strong>11/23（週一）：</strong>早上遊覽第4站（熱羅尼姆斯修道院 + 旁邊的 Pastéis de Belém！）</span>
+    <span class="en"><strong>🎟️ Lisbon Card Tip:</strong> Get the 24-hour card and activate it around noon.<br><strong>11/22 (Sun):</strong> Visit sights 1–3<br><strong>11/23 (Mon):</strong> Visit sight 4 in the morning (Jerónimos Monastery + Pastéis de Belém next door!)</span>
+  </div>
+  <div class="ps">
+    <div class="pi"><div class="hrs"><span class="zh">24小時</span><span class="en">24 hrs</span></div><div class="eur">€29.45</div><div class="usd">~USD $34.43</div></div>
+    <div class="pi"><div class="hrs"><span class="zh">48小時</span><span class="en">48 hrs</span></div><div class="eur">€48.45</div><div class="usd">~USD $56.63</div></div>
+    <div class="pi"><div class="hrs"><span class="zh">72小時</span><span class="en">72 hrs</span></div><div class="eur">€58.90</div><div class="usd">~USD $68.58</div></div>
+  </div>
+  <div style="margin:0.5rem 0 1.8rem;">
+    <a class="tl-link" href="https://affiliate.klook.com/redirect?aid=121102&aff_adid=1278789&k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Factivity%2F15092-city-card-lisbon%2F" target="_blank" rel="noopener">🎟️ <span class="zh">在 Klook 購買里斯本卡</span><span class="en">Buy Lisbon Card on Klook</span></a>
+  </div>
+  <div class="sg">
+    <div class="sc"><div class="sc-num">01</div><h3><span class="zh">阿茹達國家宮</span><span class="en">Palácio Nacional da Ajuda</span></h3><p style="font-style:italic;color:var(--stone);font-size:0.77rem;">Palácio Nacional da Ajuda</p><div class="sm"><span class="badge fr">✓ <span class="zh">里斯本卡免費</span><span class="en">Free with Card</span></span><span class="badge pd"><span class="zh">原價</span><span class="en">Reg.</span> €15</span></div><p><span class="zh">充滿皇家歷史的宮殿。開放：10:00–18:00</span><span class="en">A palace steeped in royal history. Open: 10 AM–6 PM</span></p><div class="dist">🚗 <span class="zh">距飯店約23分鐘車程</span><span class="en">~23 min drive from hotel</span></div><a class="map-link-btn" style="font-size:0.74rem;padding:0.38rem 0.85rem;margin-top:0.55rem;" href="https://maps.google.com/maps?q=Palácio+Nacional+da+Ajuda,+Lisbon,+Portugal" target="_blank" rel="noopener">🗺️ <span class="zh">查看地圖</span><span class="en">Google Maps</span></a></div>
+    <div class="sc"><div class="sc-num">02</div><h3><span class="zh">皇家珍寶博物館</span><span class="en">Museu do Tesouro Real</span></h3><p style="font-style:italic;color:var(--stone);font-size:0.77rem;">Museu do Tesouro Real</p><div class="sm"><span class="badge fr">✓ <span class="zh">里斯本卡免費</span><span class="en">Free with Card</span></span><span class="badge pd"><span class="zh">原價</span><span class="en">Reg.</span> €11</span></div><p><span class="zh">緊鄰皇家宮殿，展示珍貴王室寶藏。開放：10:00–18:00</span><span class="en">Next to the royal palace, housing precious crown jewels. Open: 10 AM–6 PM</span></p><div class="dist">📍 <span class="zh">緊鄰第1站</span><span class="en">Right next to Sight #1</span></div><a class="map-link-btn" style="font-size:0.74rem;padding:0.38rem 0.85rem;margin-top:0.55rem;" href="https://maps.google.com/maps?q=Museu+do+Tesouro+Real,+Lisbon,+Portugal" target="_blank" rel="noopener">🗺️ <span class="zh">查看地圖</span><span class="en">Google Maps</span></a></div>
+    <div class="sc"><div class="sc-num">03</div><h3><span class="zh">聖喬治城堡</span><span class="en">Castelo de São Jorge</span></h3><p style="font-style:italic;color:var(--stone);font-size:0.77rem;">Castelo de São Jorge</p><div class="sm"><span class="badge fr">✓ <span class="zh">里斯本卡免費</span><span class="en">Free with Card</span></span><span class="badge pd"><span class="zh">原價</span><span class="en">Reg.</span> €17</span></div><p><span class="zh">可360度俯瞰整個里斯本的壯麗全景！開放：09:00–21:00</span><span class="en">360-degree panoramic views over all of Lisbon. Open: 9 AM–9 PM</span></p><div class="dist">🚶🏻 <span class="zh">距飯店步行約11分鐘</span><span class="en">~11 min walk from hotel</span></div><a class="map-link-btn" style="font-size:0.74rem;padding:0.38rem 0.85rem;margin-top:0.55rem;" href="https://maps.google.com/maps?q=Castelo+de+Sao+Jorge,+Lisbon,+Portugal" target="_blank" rel="noopener">🗺️ <span class="zh">查看地圖</span><span class="en">Google Maps</span></a></div>
+    <div class="sc"><div class="sc-num">04</div><h3><span class="zh">熱羅尼姆斯修道院</span><span class="en">Jerónimos Monastery</span></h3><p style="font-style:italic;color:var(--stone);font-size:0.77rem;">Jerónimos Monastery</p><div class="sm"><span class="badge fr">✓ <span class="zh">里斯本卡免費</span><span class="en">Free with Card</span></span><span class="badge pd"><span class="zh">原價</span><span class="en">Reg.</span> €17.95</span></div><p><span class="zh">葡萄牙晚期哥德式建築精髓，人潮較多。緊鄰著名 Pastéis de Belém！</span><span class="en">Finest Manueline Gothic architecture. Gets crowded — go early. Famous Pastéis de Belém is right next door!</span></p><div class="dist">🚗 <span class="zh">距飯店約20分鐘車程</span><span class="en">~20 min drive from hotel</span></div><a class="map-link-btn" style="font-size:0.74rem;padding:0.38rem 0.85rem;margin-top:0.55rem;" href="https://maps.google.com/maps?q=Mosteiro+dos+Jeronimos,+Belem,+Lisbon,+Portugal" target="_blank" rel="noopener">🗺️ <span class="zh">查看地圖</span><span class="en">Google Maps</span></a></div>
+    <div class="sc"><div class="sc-num">05</div><h3><span class="zh">橋體驗 Pilar 7</span><span class="en">Pilar 7 Bridge Experience</span></h3><p style="font-style:italic;color:var(--stone);font-size:0.77rem;">Pilar 7 Bridge Experience</p><div class="sm"><span class="badge fr">✓ <span class="zh">里斯本卡免費</span><span class="en">Free with Card</span></span><span class="badge pd"><span class="zh">原價</span><span class="en">Reg.</span> €3</span></div><p><span class="zh">⚠️ 電梯目前故障，需爬300+階樓梯，體力好再考慮！開放：10:00–18:00</span><span class="en">⚠️ Elevator out of service — requires 300+ stairs. Open: 10 AM–6 PM</span></p><div class="dist">🚗 <span class="zh">距飯店約16分鐘車程</span><span class="en">~16 min drive from hotel</span></div><a class="map-link-btn" style="font-size:0.74rem;padding:0.38rem 0.85rem;margin-top:0.55rem;" href="https://maps.google.com/maps?q=Pilar+7+Bridge+Experience,+Lisbon,+Portugal" target="_blank" rel="noopener">🗺️ <span class="zh">查看地圖</span><span class="en">Google Maps</span></a></div>
+  </div>
+</section>
+
+<!-- TOURS -->
+<section class="tb" id="tours">
+  <div class="ti">
+    <p class="sl-label"><span class="zh">Viator 導覽行程</span><span class="en">Tour Experiences</span></p>
+    <h2 class="sl-title"><span class="zh">精選旅遊體驗</span><span class="en">Recommended Tours</span></h2>
+    <div class="divider" style="background:linear-gradient(90deg,var(--gold),var(--terracotta))"></div>
+    <div class="tg">
+
+      <div class="tc">
+        <div class="ticon">🛺</div>
+        <h3><span class="zh">里斯本私人嘟嘟車觀光之旅</span><span class="en">Private Lisbon Sightseeing Tuk-Tuk Tour</span></h3>
+        <div class="pr">💰 <span class="zh">每人每小時 $16.7 · 1–4小時 · 安排於11/20</span><span class="en">$16.7/person/hr · 1–4 hrs · Scheduled 11/20</span></div>
+        <p><span class="zh">遊覽阿爾法瑪、貝倫及更多區域，靈活自由，專業導遊帶領！</span><span class="en">Explore Alfama, Belém and more with a private local guide. Fun and flexible!</span></p>
+        <a class="tc-link" href="https://www.viator.com/tours/Lisbon/Lisbon-Half-Day-Sightseeing-Tour-by-Electric-Tuk-Tuk/d538-25843P2?pid=P00058688&uid=U00806492&mcid=58086&currency=USD" target="_blank" rel="noopener">🎟️ <span class="zh">立即預訂</span><span class="en">Book Now</span></a>
+      </div>
+
+      <div class="tc">
+        <div class="ticon">🏰</div>
+        <h3><span class="zh">辛特拉、佩納宮、雷加萊拉宮、羅卡角 &amp; 卡斯卡伊斯一日遊</span><span class="en">Sintra, Pena, Regaleira, Cabo da Roca &amp; Cascais Full Day</span></h3>
+        <div class="pr">💰 <span class="zh">每人約 $105.81 · 約9小時 · 安排於11/24</span><span class="en">~$105.81/person · ~9 hrs · Scheduled 11/24</span></div>
+        <p><span class="zh">包含辛特拉宮殿群、歐洲大陸最西端及迷人海濱小鎮，壯觀的一日遊！</span><span class="en">Sintra palaces, Europe's westernmost point, and a charming seaside town — a spectacular day out!</span></p>
+        <a class="tc-link" href="https://www.viator.com/tours/Lisbon/Enchanting-Escapades-Full-Day-Tour-through-Sintra-and-Cascais/d538-423031P1?pid=P00058688&uid=U00806492&mcid=58086&currency=USD" target="_blank" rel="noopener">🎟️ <span class="zh">立即預訂</span><span class="en">Book Now</span></a>
+      </div>
+
+      <div class="tc">
+        <div class="ticon">🍷</div>
+        <h3><span class="zh">葡萄牙美食與葡萄酒小團體之旅</span><span class="en">Lisbon Small-Group Food &amp; Wine Tour</span></h3>
+        <div class="pr">💰 <span class="zh">每人 $78.73 · 約3小時</span><span class="en">$78.73/person · ~3 hrs</span></div>
+        <p><span class="zh">品嚐道地葡萄牙料理與葡萄酒，深入了解里斯本飲食文化。</span><span class="en">Taste authentic Portuguese cuisine and wines on a small-group gourmet tour. A must for food lovers.</span></p>
+        <a class="tc-link" href="https://www.viator.com/tours/Lisbon/Lisbon-Small-Group-Gourmet-Portuguese-Food-and-Wine-Tour/d538-5383GOURMET?pid=P00058688&uid=U00806492&mcid=58086&currency=USD" target="_blank" rel="noopener">🎟️ <span class="zh">立即預訂</span><span class="en">Book Now</span></a>
+      </div>
+
+      <div class="tc">
+        <div class="ticon">⛵</div>
+        <h3><span class="zh">里斯本2小時夕陽帆船遊暨品酒</span><span class="en">2-Hour Lisbon Sunset &amp; Wine Sailing Tour</span></h3>
+        <div class="pr">💰 <span class="zh">依方案而定</span><span class="en">Price varies by option</span></div>
+        <p><span class="zh">在特霍河上享受美麗夕陽，配上葡萄牙葡萄酒，浪漫愜意的絕佳體驗。</span><span class="en">Sail the Tagus River at golden hour with Portuguese wine. Romantic and unforgettable.</span></p>
+        <a class="tc-link" href="https://www.viator.com/tours/Lisbon/Lisbon-2-Hour-Small-Group-Sailing-Tour/d538-15420P3?pid=P00058688&uid=U00806492&mcid=58086&currency=USD" target="_blank" rel="noopener">🎟️ <span class="zh">立即預訂</span><span class="en">Book Now</span></a>
+      </div>
+
+      <div class="tc">
+        <div class="ticon">🥐</div>
+        <h3><span class="zh">葡式蛋塔製作課程</span><span class="en">Pastel de Nata Pastry Class</span></h3>
+        <div class="pr">💰 <span class="zh">每人 $65.71</span><span class="en">$65.71/person</span></div>
+        <p><span class="zh">親手學習製作里斯本最著名甜點，邊做邊吃，帶回美味記憶！</span><span class="en">Bake Lisbon's most iconic treat and enjoy them fresh from the oven. A delicious souvenir!</span></p>
+        <a class="tc-link" href="https://www.viator.com/tours/Lisbon/Pastel-de-Nata-Pastry-Class/d538-325678P2?pid=P00058688&uid=U00806492&mcid=58086&currency=USD" target="_blank" rel="noopener">🎟️ <span class="zh">立即預訂</span><span class="en">Book Now</span></a>
+      </div>
+
+      <div class="tc">
+        <div class="ticon">👨‍🍳</div>
+        <h3><span class="zh">里斯本烹飪課程</span><span class="en">Cooking Lisbon</span></h3>
+        <div class="pr">💰 <span class="zh">依方案而定</span><span class="en">Price varies by option</span></div>
+        <p><span class="zh">在當地廚師帶領下，親身體驗葡萄牙料理的精髓與里斯本飲食文化。</span><span class="en">Cook traditional Portuguese dishes with a local chef. A hands-on cultural experience in the heart of Lisbon.</span></p>
+        <a class="tc-link" href="https://www.cookinglisbon.com/classes" target="_blank" rel="noopener">🍳 <span class="zh">查看課程</span><span class="en">View Classes</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESTAURANTS -->
+<section class="sec" id="restaurants">
+  <p class="sl-label"><span class="zh">餐廳推薦</span><span class="en">Where to Eat</span></p>
+  <h2 class="sl-title"><span class="zh">里斯本必吃餐廳</span><span class="en">Recommended Restaurants</span></h2>
+  <div class="divider"></div>
+  <div style="overflow-x:auto;">
+    <table class="rt">
+      <thead><tr><th><span class="zh">餐廳名稱</span><span class="en">Restaurant</span></th><th><span class="zh">介紹</span><span class="en">Description</span></th><th><span class="zh">人均消費</span><span class="en">Per Person</span></th></tr></thead>
+      <tbody>
+        <tr class="cr"><td colspan="3"><span class="zh">🍽️ 輕鬆休閒</span><span class="en">🍽️ Casual Dining</span></td></tr>
+        <tr><td class="rn">Lupita<br><a href="https://maps.google.com/maps?q=Lupita+Lisboa,+Santos,+Lisbon,+Portugal" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.25rem;margin-top:0.3rem;font-size:0.68rem;color:var(--blue);text-decoration:none;opacity:0.65;">🗺️ Map</a></td><td><span class="zh">桑托斯區色彩繽紛的新潮小店，以蔬菜為主角，炸玉米餅和烤玉米脆片別出心裁，是里斯本時尚人士聚集地。</span><span class="en">A colorful, produce-forward spot in Santos. Creative tacos and tostadas draw Lisbon's hip crowd.</span></td><td class="rp">€10–15</td></tr>
+        <tr><td class="rn">Bar Alimentar<br><a href="https://maps.google.com/maps?q=Bar+Alimentar,+Lisbon,+Portugal" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.25rem;margin-top:0.3rem;font-size:0.68rem;color:var(--blue);text-decoration:none;opacity:0.65;">🗺️ Map</a></td><td><span class="zh">半酒舖半酒吧，全靠氣氛取勝。當地人享用罐裝魚、義式熟食和葡萄牙新銳釀酒師作品的好去處。</span><span class="en">Part wine shop, part bar, all vibe. Locals snack on tinned fish, charcuterie, and bold natural wines.</span></td><td class="rp">€30–35</td></tr>
+        <tr><td class="rn">Pica-Pau<br><a href="https://maps.google.com/maps?q=Pica-Pau,+Lisbon,+Portugal" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.25rem;margin-top:0.3rem;font-size:0.68rem;color:var(--blue);text-decoration:none;opacity:0.65;">🗺️ Map</a></td><td><span class="zh">現代里斯本風情融合復古格調，天然葡萄酒、創意小酒館下酒菜，迷人的深夜氛圍。（距離稍遠）</span><span class="en">Modern Lisbon energy with vintage flair. Natural wines and creative tavern snacks. (A bit further out)</span></td><td class="rp">€30–35</td></tr>
+        <tr><td class="rn">Pastéis de Belém<br><a href="https://maps.google.com/maps?q=Pasteis+de+Belem,+Rua+de+Belem,+Lisbon,+Portugal" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.25rem;margin-top:0.3rem;font-size:0.68rem;color:var(--blue);text-decoration:none;opacity:0.65;">🗺️ Map</a></td><td><span class="zh">經典必朝聖！外帶剛出爐的葡式蛋塔，在修道院旁的長椅上趁熱享用。</span><span class="en">Iconic and still worth it. Get custard tarts to-go and enjoy them warm near the monastery.</span></td><td class="rp"><span class="zh">小吃價位</span><span class="en">Snack prices</span></td></tr>
+        <tr class="cr"><td colspan="3"><span class="zh">✨ 精緻高級</span><span class="en">✨ Fine Dining</span></td></tr>
+        <tr><td class="rn">Prado<br><a href="https://maps.google.com/maps?q=Prado+Restaurant,+Lisbon,+Portugal" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.25rem;margin-top:0.3rem;font-size:0.68rem;color:var(--blue);text-decoration:none;opacity:0.65;">🗺️ Map</a></td><td><span class="zh">前魚罐頭工廠改建的極簡風格季節性餐廳，所有食材、陶瓷器皿到酒單全部在地精選。</span><span class="en">A minimalist seasonal standout in a former cannery. Everything local — from ceramics to the wine list.</span></td><td class="rp">€50+</td></tr>
+        <tr><td class="rn">Tapisco<br><a href="https://maps.google.com/maps?q=Tapisco,+Lisbon,+Portugal" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.25rem;margin-top:0.3rem;font-size:0.68rem;color:var(--blue);text-decoration:none;opacity:0.65;">🗺️ Map</a></td><td><span class="zh">輕鬆卻精緻的伊比利半島料理，坐在吧台，配苦艾酒或清爽綠酒，搭配剃刀蛤和可樂餅。</span><span class="en">Relaxed yet elevated Iberian plates by chef Henrique Sá Pessoa. Sit at the counter with razor clams and vermouth.</span></td><td class="rp">€50+</td></tr>
+        <tr><td class="rn">Café de São Bento<br><a href="https://maps.google.com/maps?q=Cafe+de+Sao+Bento,+Lisbon,+Portugal" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.25rem;margin-top:0.3rem;font-size:0.68rem;color:var(--blue);text-decoration:none;opacity:0.65;">🗺️ Map</a></td><td><span class="zh">老派昏黃氛圍，以一道菜聞名：牛排。自1980年代起以奶油胡椒醬汁的完美牛排征服食客。</span><span class="en">Old-school and famous for one thing: the steak. Buttery, peppery perfection since the '80s.</span></td><td class="rp">€50+</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- LODGING -->
+<div class="hb" id="lodging">
+  <div class="hi">
+    <p class="sl-label"><span class="zh">住宿選擇</span><span class="en">Accommodations</span></p>
+    <h2 class="sl-title" style="color:var(--blue)"><span class="zh">飯店推薦 · 三種選擇</span><span class="en">Hotel Options · Three Tiers</span></h2>
+    <div class="divider"></div>
+
+    <!-- Klook Airport Transfer -->
+    <div class="klk-card">
+      <div class="klk-ico">🚗</div>
+      <div class="klk-body">
+        <h3><span class="zh">機場接送服務</span><span class="en">Airport Transfer via Klook</span></h3>
+        <p><span class="zh">從里斯本機場（LIS）到市區飯店約22分鐘車程。建議提前在 Klook 預訂機場接送——比臨時叫計程車更省錢、更安心，抵達後直接輕鬆入住！</span><span class="en">~22 minutes from Lisbon Airport (LIS) to the city center. Pre-book your transfer through Klook for a stress-free arrival — more reliable and cost-effective than hailing a cab after a long flight.</span></p>
+        <a class="klk-btn" href="https://affiliate.klook.com/redirect?aid=121102&aff_adid=1278789&k_site=https%3A%2F%2Fwww.klook.com%2Fen-US%2Fairport-transfers%2Fservice%2Flis-lisbon-portela-airport%2F%3Fcampaignid%3D22912500911%26adgroupid%3D187808620727%26targetid%3Daud-2285051243511%3Adsa-2436918001118%26matchtype%3D%26device%3Dc%26creative%3D770216183978%26extensionid%3D%26keyword%3D%26loc_interest_ms%3D%26loc_physical_ms%3D9031045%26network%3Dg%26utm_content%3Dcampaignid_22912500911_adgroupid_187808620727%26gad_source%3D1%26gad_campaignid%3D22912500911%26gbraid%3D0AAAAACa_CWyCLEkpJ3pUNuk2ND51tb5xz%26gclid%3DCjwKCAjwq6DQBhBVEiwA4ZD5XDGPd2uY5ldMYdlsvOSrkQ00-PNwIVj1elW41cA0qnSAF_EKKO0tghoCVbYQAvD_BwE" target="_blank" rel="noopener">🚕 <span class="zh">立即預訂接送</span><span class="en">Book Airport Transfer</span></a>
+      </div>
+    </div>
+
+    <!-- 3 Tier Hotels -->
+    <div class="lod-grid">
+
+      <div class="lod-card">
+        <span class="tier-badge tier-b"><span class="zh">經濟首選</span><span class="en">Budget · ~$150/night</span></span>
+        <div class="lod-name">Hotel do Chiado</div>
+        <div class="lod-area">📍 Chiado &nbsp;·&nbsp; <span class="zh">里斯本中心黃金地段</span><span class="en">Heart of Central Lisbon</span></div>
+        <div class="lod-price">~$140–180 <span style="font-size:0.78rem;color:var(--stone)"><span class="zh">/晚</span><span class="en">/night</span></span></div>
+        <p class="lod-desc"><span class="zh">位於 Chiado 購物區核心，周邊咖啡廳、餐廳與精品店林立。客房現代整潔，地理位置極佳，預算有限卻不想犧牲地點的最佳選擇。</span><span class="en">Unbeatable location in the heart of Chiado, surrounded by cafés, restaurants, and boutiques. Modern, clean rooms at an honest price — the smart pick if you want to save without sacrificing location.</span></p>
+        <a class="lod-btn" href="https://www.booking.com/hotel/pt/do-chiado.html?aid=2885393&checkin=2026-11-19&checkout=2026-11-25" target="_blank" rel="noopener">🏨 <span class="zh">在 Booking.com 查看</span><span class="en">View on Booking.com</span></a>
+      </div>
+
+      <div class="lod-card">
+        <span class="tier-badge tier-m"><span class="zh">⭐ 最推薦</span><span class="en">⭐ Mid-Range · Recommended</span></span>
+        <div class="lod-name">Memmo Alfama Design Hotel</div>
+        <div class="lod-area">📍 Alfama &nbsp;·&nbsp; <span class="zh">城堡山腳，近婚禮場地</span><span class="en">Below the Castle · Near Wedding Venue</span></div>
+        <div class="lod-price">~$280–340 <span style="font-size:0.78rem;color:var(--stone)"><span class="zh">/晚</span><span class="en">/night</span></span></div>
+        <p class="lod-desc"><span class="zh">設計感十足的精品飯店，擁有可俯瞰聖喬治城堡的絕美屋頂露台。地處阿爾法瑪老城區，步行即可到達婚禮場地附近，是這趟旅行最理想的落腳點！</span><span class="en">Sleek design hotel with an extraordinary rooftop terrace overlooking Castelo de São Jorge. Set in the Alfama neighborhood and walkable to the wedding venue area — the ideal home base for this trip.</span></p>
+        <a class="lod-btn" href="https://www.booking.com/hotel/pt/memmo-alfama.html?aid=2885393&checkin=2026-11-19&checkout=2026-11-25" target="_blank" rel="noopener">🏨 <span class="zh">在 Booking.com 查看</span><span class="en">View on Booking.com</span></a>
+      </div>
+
+      <div class="lod-card">
+        <span class="tier-badge tier-l"><span class="zh">奢華享受</span><span class="en">Luxury · Splurge</span></span>
+        <div class="lod-name">Bairro Alto Hotel</div>
+        <div class="lod-area">📍 Chiado / Bairro Alto &nbsp;·&nbsp; <span class="zh">里斯本最潮流地段</span><span class="en">Lisbon's Trendiest Corner</span></div>
+        <div class="lod-price">~$500+ <span style="font-size:0.78rem;color:var(--stone)"><span class="zh">/晚</span><span class="en">/night</span></span></div>
+        <p class="lod-desc"><span class="zh">18世紀古典建築改建的精品奢華飯店，屋頂酒吧可欣賞特霍河全景，坐落於 Chiado 與 Bairro Alto 的黃金交叉口，是里斯本最具魅力的高端住宿之一。</span><span class="en">An 18th-century building at the crossroads of Chiado and Bairro Alto with a stunning rooftop bar overlooking the Tagus River. One of Lisbon's most characterful and celebrated luxury stays.</span></p>
+        <a class="lod-btn" href="https://www.booking.com/hotel/pt/bairro-alto.html?aid=2885393&checkin=2026-11-19&checkout=2026-11-25" target="_blank" rel="noopener">🏨 <span class="zh">在 Booking.com 查看</span><span class="en">View on Booking.com</span></a>
+      </div>
+
+    </div>
+    <p style="font-size:0.78rem;color:var(--stone);margin-top:1.2rem;text-align:center;"><span class="zh">* 以上價格為估算參考，實際價格請至 Booking.com 查詢最新報價與空房情況</span><span class="en">* Prices are estimates — check Booking.com for current availability and exact rates</span></p>
+  </div>
+</div>
+
+<!-- INSURANCE -->
+<section class="ib" id="insurance">
+  <div class="ii">
+    <div>
+      <p class="sl-label"><span class="zh">旅遊保險</span><span class="en">Travel Insurance</span></p>
+      <h2 class="sl-title"><span class="zh">Faye 旅遊保險</span><span class="en">Faye Travel Insurance</span></h2>
+      <div class="ifs">
+        <div class="fr-row"><span class="fr-chk">✦</span><p><span class="zh">操作簡便的一站式應用程式</span><span class="en">User-friendly all-in-one app</span></p></div>
+        <div class="fr-row"><span class="fr-chk">✦</span><p><span class="zh">24/7 客戶服務專員全天候待命</span><span class="en">Customer experience specialists available 24/7</span></p></div>
+        <div class="fr-row"><span class="fr-chk">✦</span><p><span class="zh">全數位化理賠流程，簡單方便</span><span class="en">Easy, fully digital claims processing</span></p></div>
+        <div class="fr-row"><span class="fr-chk">✦</span><p><span class="zh">透過 Faye 錢包快速退款（可連結 Google / Apple Wallet）</span><span class="en">Speedy reimbursements via Faye Wallet (Google &amp; Apple Wallet compatible)</span></p></div>
+      </div>
+    </div>
+    <div class="fb">
+      <div class="lt">FAYE</div>
+      <p><span class="zh">旅行中的安心保障</span><span class="en">Peace of mind while you travel</span></p>
+      <div style="margin-top:1.4rem;"><a href="https://www.withfaye.com/quote/offer?utm_campaign=KejoLiuForaTravel&utm_source=ForaTravel&utm_medium=bd-traveladvisors&utm_term=glinda" target="_blank" rel="noopener" style="display:inline-block;background:var(--terracotta);color:white;padding:0.65rem 1.4rem;border-radius:2rem;font-size:0.82rem;text-decoration:none;"><span class="zh">立即取得旅遊保險報價</span><span class="en">Get a Free Quote →</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="ms" id="map">
+  <div class="mi">
+    <p class="sl-label"><span class="zh">地圖導航</span><span class="en">Trip Map</span></p>
+    <h2 class="sl-title" style="color:var(--blue)"><span class="zh">Google 地圖指南</span><span class="en">Google Map Guide</span></h2>
+    <div class="divider"></div>
+    <p style="font-size:0.87rem;color:var(--stone);margin-bottom:1.1rem;"><span class="zh">地圖共有5個圖層，可自由勾選或取消勾選各圖層查看不同景點詳細資訊：</span><span class="en">The map has 5 layers — check or uncheck each to explore different locations:</span></p>
+    <div class="ml">
+      <div class="li"><div class="ld" style="background:#e53935;"></div><span class="zh">機場 &amp; 飯店</span><span class="en">Airport &amp; Hotel</span></div>
+      <div class="li"><div class="ld" style="background:#1e88e5;"></div><span class="zh">十大免費景點</span><span class="en">Top Attractions</span></div>
+      <div class="li"><div class="ld" style="background:#43a047;"></div><span class="zh">電動嘟嘟車路線</span><span class="en">Tuk-Tuk Route</span></div>
+      <div class="li"><div class="ld" style="background:#fb8c00;"></div><span class="zh">辛特拉一日遊</span><span class="en">Sintra Day Trip</span></div>
+      <div class="li"><div class="ld" style="background:#8e24aa;"></div><span class="zh">推薦餐廳</span><span class="en">Restaurants</span></div>
+    </div>
+    <div style="margin-top:1.5rem;">
+      <a class="map-link-btn" href="https://www.google.com/maps/d/edit?mid=1LCOzDWImXJJQWJNZgReO7a1sy6r-SL8&usp=drive_link" target="_blank" rel="noopener">
+        🗺️ <span class="zh">開啟 Google 地圖</span><span class="en">Open Google Map</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="cs" id="contact">
+  <div class="ci">
+    <p class="sl-label"><span class="zh">聯絡旅遊顧問</span><span class="en">Contact Your Advisor</span></p>
+    <h2 class="sl-title"><span class="zh">需要協助嗎？</span><span class="en">Need Help?</span></h2>
+    <div class="divider" style="margin:1.2rem auto 2rem;background:linear-gradient(90deg,var(--terracotta),var(--gold));"></div>
+    <p class="c-intro"><span class="zh">如果您有任何關於行程、訂房、旅遊保險或其他旅行相關問題，歡迎隨時聯絡我！身為 Fora Travel 旅遊顧問，我很樂意協助您規劃最完美的旅程。</span><span class="en">Have questions about the itinerary, bookings, travel insurance, or anything else? I'm here to help! As your Fora Travel advisor, I'm happy to make this trip as smooth and memorable as possible.</span></p>
+    <div class="c-links">
+      <a href="mailto:kejo.liu@fora.travel" class="c-btn c-email">✉ <span class="zh">電子郵件聯絡</span><span class="en">Email Me</span></a>
+      <a href="https://lin.ee/9JRGav2" target="_blank" rel="noopener" class="c-btn c-line">💬 <span class="zh">LINE 聯絡我</span><span class="en">Message on LINE</span></a>
+    </div>
+    <p class="adv">KEJO LIU &nbsp;·&nbsp; FORA TRAVEL ADVISOR &nbsp;·&nbsp; kejo.liu@fora.travel</p>
+  </div>
+</section>
+
+<script>
+  function setLang(lang) {
+    const body = document.body;
+    const btnZh = document.getElementById('btn-zh');
+    const btnEn = document.getElementById('btn-en');
+    if (lang === 'en') {
+      body.classList.add('en-mode');
+      btnEn.classList.add('active');
+      btnZh.classList.remove('active');
+    } else {
+      body.classList.remove('en-mode');
+      btnZh.classList.add('active');
+      btnEn.classList.remove('active');
+    }
+  }
+</script>
+</body>
+</html>
