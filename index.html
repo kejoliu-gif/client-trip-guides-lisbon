@@ -39,7 +39,8 @@
   .hero h1 span { color:var(--tl); font-style:italic; }
   .hero-sub { margin-top:1.5rem; font-size:clamp(0.8rem,2vw,1rem); color:var(--sl); letter-spacing:0.15em; }
   .hero-dates { margin-top:2.5rem; display:flex; gap:0.8rem; flex-wrap:wrap; justify-content:center; }
-  .date-pill { background:rgba(255,255,255,0.08); border:1px solid rgba(184,151,58,0.4); color:var(--gl); padding:0.5rem 1.1rem; border-radius:2rem; font-size:0.8rem; }
+  .date-pill { background:rgba(255,255,255,0.08); border:1px solid rgba(184,151,58,0.4); color:var(--gl); padding:0.5rem 1.1rem; border-radius:2rem; font-size:0.8rem; text-decoration:none; transition:background 0.2s,border-color 0.2s,transform 0.15s; }
+  .date-pill:hover { background:rgba(184,151,58,0.25); border-color:var(--gl); transform:translateY(-2px); }
 
   .sec { max-width:960px; margin:0 auto; padding:4rem 1.5rem; }
   .sl-label { font-family:'Cormorant Garamond',serif; font-size:0.75rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--terracotta); margin-bottom:0.75rem; }
@@ -235,11 +236,15 @@
   <h1><span class="zh">里<span style="color:var(--tl);font-style:italic">斯</span>本</span><span class="en">Lis<span style="color:var(--tl);font-style:italic">bon</span></span></h1>
   <p class="hero-sub">LISBON, PORTUGAL &nbsp;·&nbsp; NOVEMBER 2026</p>
   <div class="hero-dates">
-    <div class="date-pill"><span class="zh">✈️ 11/18 出發</span><span class="en">✈️ 11/18 Depart</span></div>
-    <div class="date-pill"><span class="zh">🌅 11/19 抵達</span><span class="en">🌅 11/19 Arrive</span></div>
-    <div class="date-pill"><span class="zh">💍 11/21 婚禮</span><span class="en">💍 11/21 Wedding</span></div>
-    <div class="date-pill"><span class="zh">✈️ 11/25 返程</span><span class="en">✈️ 11/25 Return</span></div>
-    <div class="date-pill"><span class="zh">🦃 11/26 感恩節</span><span class="en">🦃 11/26 Thanksgiving</span></div>
+    <a class="date-pill" href="#day-18"><span class="zh">✈️ 11/18 出發</span><span class="en">✈️ 11/18 Depart</span></a>
+    <a class="date-pill" href="#day-19"><span class="zh">🌅 11/19 抵達</span><span class="en">🌅 11/19 Arrive</span></a>
+    <a class="date-pill" href="#day-20"><span class="zh">🛺 11/20 導覽</span><span class="en">🛺 11/20 Tour</span></a>
+    <a class="date-pill" href="#day-21"><span class="zh">💍 11/21 婚禮</span><span class="en">💍 11/21 Wedding</span></a>
+    <a class="date-pill" href="#day-22"><span class="zh">🏛️ 11/22 探索</span><span class="en">🏛️ 11/22 Explore</span></a>
+    <a class="date-pill" href="#day-23"><span class="zh">🏰 11/23 修道院</span><span class="en">🏰 11/23 Monastery</span></a>
+    <a class="date-pill" href="#day-24"><span class="zh">🚌 11/24 辛特拉</span><span class="en">🚌 11/24 Sintra</span></a>
+    <a class="date-pill" href="#day-25"><span class="zh">✈️ 11/25 返程</span><span class="en">✈️ 11/25 Return</span></a>
+    <a class="date-pill" href="#day-26"><span class="zh">🦃 11/26 感恩節</span><span class="en">🦃 11/26 Thanksgiving</span></a>
   </div>
 </section>
 
@@ -310,19 +315,6 @@
   <p class="sl-label"><span class="zh">每日行程</span><span class="en">Daily Itinerary</span></p>
   <h2 class="sl-title"><span class="zh">旅遊行程表</span><span class="en">Trip Schedule</span></h2>
   <div class="divider"></div>
-
-  <!-- DAY NAV -->
-  <nav class="day-nav" aria-label="Jump to day">
-    <a class="day-btn" href="#day-18"><div class="db-ico">✈️</div><div class="db-num">18</div><div class="db-lab"><span class="zh">出發</span><span class="en">Depart</span></div></a>
-    <a class="day-btn" href="#day-19"><div class="db-ico">🌅</div><div class="db-num">19</div><div class="db-lab"><span class="zh">抵達</span><span class="en">Arrive</span></div></a>
-    <a class="day-btn" href="#day-20"><div class="db-ico">🛺</div><div class="db-num">20</div><div class="db-lab"><span class="zh">導覽</span><span class="en">Tour</span></div></a>
-    <a class="day-btn" href="#day-21"><div class="db-ico">💍</div><div class="db-num">21</div><div class="db-lab"><span class="zh">婚禮</span><span class="en">Wedding</span></div></a>
-    <a class="day-btn" href="#day-22"><div class="db-ico">🏛️</div><div class="db-num">22</div><div class="db-lab"><span class="zh">探索</span><span class="en">Explore</span></div></a>
-    <a class="day-btn" href="#day-23"><div class="db-ico">🏰</div><div class="db-num">23</div><div class="db-lab"><span class="zh">修道院</span><span class="en">Monastery</span></div></a>
-    <a class="day-btn" href="#day-24"><div class="db-ico">🚌</div><div class="db-num">24</div><div class="db-lab"><span class="zh">辛特拉</span><span class="en">Sintra</span></div></a>
-    <a class="day-btn" href="#day-25"><div class="db-ico">🏡</div><div class="db-num">25</div><div class="db-lab"><span class="zh">返程</span><span class="en">Return</span></div></a>
-    <a class="day-btn" href="#day-26"><div class="db-ico">🦃</div><div class="db-num">26</div><div class="db-lab"><span class="zh">感恩節</span><span class="en">Thanks</span></div></a>
-  </nav>
 
   <div class="tl">
 
