@@ -61,8 +61,8 @@
   .tl::before { content:''; position:absolute; left:2rem; top:0; bottom:0; width:1px; background:linear-gradient(to bottom,var(--terracotta),var(--gold)); opacity:0.25; }
   .tl-item { display:grid; grid-template-columns:4rem 1fr; gap:1.2rem; padding:1.6rem 0; border-bottom:1px solid rgba(0,0,0,0.06); scroll-margin-top:80px; border-radius:12px; transition:background 0.3s; }
   .tl-item:last-child { border-bottom:none; }
-  @keyframes day-highlight { 0%,8% { background:rgba(184,151,58,0.14); } 100% { background:transparent; } }
-  .tl-item:target { animation:day-highlight 2.8s ease-out forwards; }
+  @keyframes day-in { from { background:rgba(184,151,58,0.26); } to { background:rgba(184,151,58,0.11); } }
+  .tl-item:target { background:rgba(184,151,58,0.11); animation:day-in 0.6s ease-out forwards; }
   .tl-item:target .tl-dnum { color:var(--terracotta); }
   .tl-item:target .tl-dot { box-shadow:0 0 0 6px rgba(184,151,58,0.35); }
   .tl-date { text-align:center; }
@@ -629,6 +629,25 @@
 </section>
 
 <script>
+  // Clear day highlight on scroll or click after anchor navigation
+  (function() {
+    let settling = false;
+    window.addEventListener('hashchange', function() {
+      settling = true;
+      setTimeout(function() { settling = false; }, 900);
+    });
+    window.addEventListener('scroll', function() {
+      if (!settling && location.hash) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    }, { passive: true });
+    document.addEventListener('click', function(e) {
+      if (location.hash && !e.target.closest('a[href^="#"]')) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    });
+  })();
+
   function setLang(lang) {
     const body = document.body;
     const btnZh = document.getElementById('btn-zh');
