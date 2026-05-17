@@ -12,6 +12,7 @@
     --stone: #8b7d6b; --sl: #c4b9ab; --white: #fefcf8; --dark: #1c1a17;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
   body { font-family:'Noto Serif TC',serif; background:var(--cream); color:var(--dark); line-height:1.7; overflow-x:hidden; }
 
   .lang-toggle { display:flex; align-items:center; gap:0.4rem; background:rgba(255,255,255,0.1); border:1px solid rgba(184,151,58,0.4); border-radius:2rem; padding:0.25rem 0.3rem; }
@@ -181,6 +182,17 @@
   .klk-btn { display:inline-flex; align-items:center; gap:0.4rem; margin-top:0.75rem; background:var(--terracotta); color:var(--white); text-decoration:none; font-size:0.78rem; padding:0.5rem 1.15rem; border-radius:2rem; transition:opacity 0.2s; }
   .klk-btn:hover { opacity:0.88; }
 
+  /* DAY NAV */
+  .day-nav { display:flex; gap:0.5rem; overflow-x:auto; padding-bottom:0.6rem; margin-bottom:1.8rem; scrollbar-width:none; }
+  .day-nav::-webkit-scrollbar { display:none; }
+  .day-btn { display:flex; flex-direction:column; align-items:center; gap:0.1rem; background:var(--white); border:1px solid rgba(0,0,0,0.1); border-radius:10px; padding:0.55rem 0.75rem; text-decoration:none; transition:background 0.2s, border-color 0.2s, transform 0.15s; flex-shrink:0; cursor:pointer; }
+  .day-btn:hover { background:var(--blue); border-color:var(--blue); transform:translateY(-2px); }
+  .day-btn:hover .db-num, .day-btn:hover .db-lab { color:var(--white); }
+  .day-btn:hover .db-ico { filter:brightness(10); }
+  .db-ico { font-size:1rem; line-height:1; }
+  .db-num { font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--blue); font-weight:600; line-height:1.1; }
+  .db-lab { font-size:0.58rem; color:var(--stone); letter-spacing:0.04em; text-transform:uppercase; white-space:nowrap; }
+
   @media(max-width:640px){
     .nav-links{display:none;}
     .ii{grid-template-columns:1fr;gap:2rem;}
@@ -298,9 +310,23 @@
   <p class="sl-label"><span class="zh">每日行程</span><span class="en">Daily Itinerary</span></p>
   <h2 class="sl-title"><span class="zh">旅遊行程表</span><span class="en">Trip Schedule</span></h2>
   <div class="divider"></div>
+
+  <!-- DAY NAV -->
+  <nav class="day-nav" aria-label="Jump to day">
+    <a class="day-btn" href="#day-18"><div class="db-ico">✈️</div><div class="db-num">18</div><div class="db-lab"><span class="zh">出發</span><span class="en">Depart</span></div></a>
+    <a class="day-btn" href="#day-19"><div class="db-ico">🌅</div><div class="db-num">19</div><div class="db-lab"><span class="zh">抵達</span><span class="en">Arrive</span></div></a>
+    <a class="day-btn" href="#day-20"><div class="db-ico">🛺</div><div class="db-num">20</div><div class="db-lab"><span class="zh">導覽</span><span class="en">Tour</span></div></a>
+    <a class="day-btn" href="#day-21"><div class="db-ico">💍</div><div class="db-num">21</div><div class="db-lab"><span class="zh">婚禮</span><span class="en">Wedding</span></div></a>
+    <a class="day-btn" href="#day-22"><div class="db-ico">🏛️</div><div class="db-num">22</div><div class="db-lab"><span class="zh">探索</span><span class="en">Explore</span></div></a>
+    <a class="day-btn" href="#day-23"><div class="db-ico">🏰</div><div class="db-num">23</div><div class="db-lab"><span class="zh">修道院</span><span class="en">Monastery</span></div></a>
+    <a class="day-btn" href="#day-24"><div class="db-ico">🚌</div><div class="db-num">24</div><div class="db-lab"><span class="zh">辛特拉</span><span class="en">Sintra</span></div></a>
+    <a class="day-btn" href="#day-25"><div class="db-ico">🏡</div><div class="db-num">25</div><div class="db-lab"><span class="zh">返程</span><span class="en">Return</span></div></a>
+    <a class="day-btn" href="#day-26"><div class="db-ico">🦃</div><div class="db-num">26</div><div class="db-lab"><span class="zh">感恩節</span><span class="en">Thanks</span></div></a>
+  </nav>
+
   <div class="tl">
 
-    <div class="tl-item">
+    <div class="tl-item" id="day-18">
       <div class="tl-date"><div class="tl-dot"></div><div class="tl-dnum">18</div><div class="tl-dlab"><span class="zh">11月 週三</span><span class="en">Nov · Wed</span></div></div>
       <div class="tl-con">
         <span class="tag">✈️ <span class="zh">出發日</span><span class="en">Departure</span></span>
@@ -309,7 +335,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="day-19">
       <div class="tl-date"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-dnum">19</div><div class="tl-dlab"><span class="zh">11月 週四</span><span class="en">Nov · Thu</span></div></div>
       <div class="tl-con">
         <span class="tag gd">☀️ <span class="zh">抵達日</span><span class="en">Arrival</span></span>
@@ -318,7 +344,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="day-20">
       <div class="tl-date"><div class="tl-dot" style="background:var(--terracotta)"></div><div class="tl-dnum">20</div><div class="tl-dlab"><span class="zh">11月 週五</span><span class="en">Nov · Fri</span></div></div>
       <div class="tl-con">
         <span class="tag">🛺 <span class="zh">導覽日</span><span class="en">Tour Day</span></span>
@@ -328,7 +354,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="day-21">
       <div class="tl-date"><div class="tl-dot" style="background:#e91e8c"></div><div class="tl-dnum">21</div><div class="tl-dlab"><span class="zh">11月 週六</span><span class="en">Nov · Sat</span></div></div>
       <div class="tl-con">
         <span class="tag pk">💍 <span class="zh">婚禮當日</span><span class="en">Wedding Day</span></span>
@@ -337,7 +363,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="day-22">
       <div class="tl-date"><div class="tl-dot" style="background:var(--blue)"></div><div class="tl-dnum">22</div><div class="tl-dlab"><span class="zh">11月 週日</span><span class="en">Nov · Sun</span></div></div>
       <div class="tl-con">
         <span class="tag bl">🏛️ <span class="zh">景點 1–3</span><span class="en">Sights 1–3</span></span>
@@ -346,7 +372,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="day-23">
       <div class="tl-date"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-dnum">23</div><div class="tl-dlab"><span class="zh">11月 週一</span><span class="en">Nov · Mon</span></div></div>
       <div class="tl-con">
         <span class="tag gd">🏰 <span class="zh">景點 4</span><span class="en">Sight 4</span></span>
@@ -355,7 +381,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="day-24">
       <div class="tl-date"><div class="tl-dot"></div><div class="tl-dnum">24</div><div class="tl-dlab"><span class="zh">11月 週二</span><span class="en">Nov · Tue</span></div></div>
       <div class="tl-con">
         <span class="tag">🚌 <span class="zh">一日遊</span><span class="en">Day Trip</span></span>
@@ -365,7 +391,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="day-25">
       <div class="tl-date"><div class="tl-dot" style="background:var(--terracotta)"></div><div class="tl-dnum">25</div><div class="tl-dlab"><span class="zh">11月 週三</span><span class="en">Nov · Wed</span></div></div>
       <div class="tl-con">
         <span class="tag">✈️ <span class="zh">返程日</span><span class="en">Travel Day</span></span>
@@ -374,7 +400,7 @@
       </div>
     </div>
 
-    <div class="tl-item">
+    <div class="tl-item" id="day-26">
       <div class="tl-date"><div class="tl-dot" style="background:var(--gold)"></div><div class="tl-dnum">26</div><div class="tl-dlab"><span class="zh">11月 週四</span><span class="en">Nov · Thu</span></div></div>
       <div class="tl-con">
         <span class="tag gd">🦃 <span class="zh">感恩節</span><span class="en">Thanksgiving</span></span>
